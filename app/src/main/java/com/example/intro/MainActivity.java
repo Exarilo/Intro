@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 ScrollViewIntro.smoothScrollBy(0,2);         // 5 is how many pixels you want it to scroll vertically by
-                timerHandler.postDelayed(this, 50);     // 10 is how many milliseconds you want this thread to run
+                timerHandler.postDelayed(this, 45);     // 10 is how many milliseconds you want this thread to run
             }
         };
         timerHandler.postDelayed(timerRunnable, 0);
