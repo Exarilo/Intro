@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         tvIntro=findViewById(R.id.tvIntro);
         tvIntro.setMovementMethod(new ScrollingMovementMethod());
 
