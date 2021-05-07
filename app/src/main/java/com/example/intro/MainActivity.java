@@ -2,22 +2,36 @@ package com.example.intro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.ValueAnimator;
-import android.content.Intent;
-import android.os.Handler;
-import android.text.method.ScrollingMovementMethod;
-import android.view.View;
-import android.widget.ScrollView;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
+
 public class MainActivity extends AppCompatActivity {
-    private TextView tvIntro;
-    ScrollView ScrollViewIntro;
-    static boolean isAnimate=true;
-    private Button btSkipIntro;
+
+    LinearLayout layout;
+    static int  gold =0;
+    private TextView tvGold;
+    private Button btArmy1;
+    private Button btArmy2;
+    private Button btArmy3;
+    private Button btArmy4;
+    private Button btArmy5;
+    private Button btArmy6;
+    private Button btArmy7;
+    private Button btArmy8;
+
+
+    static Army currentUserArmy;
+    HashMap<String, Army> dic_Army = new HashMap<String, Army>();
+
 
 
 
@@ -30,56 +44,68 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        tvIntro=findViewById(R.id.tvIntro);
-        tvIntro.setMovementMethod(new ScrollingMovementMethod());
+        btArmy1=findViewById(R.id.btArmy1);
+        btArmy2=findViewById(R.id.btArmy2);
+        btArmy3=findViewById(R.id.btArmy3);
+        btArmy4=findViewById(R.id.btArmy4);
+        btArmy5=findViewById(R.id.btArmy5);
+        btArmy6=findViewById(R.id.btArmy6);
+        btArmy7=findViewById(R.id.btArmy7);
+        btArmy8=findViewById(R.id.btArmy8);
 
 
-        ScrollViewIntro=findViewById(R.id.ScrollViewIntro);
+        tvGold=findViewById(R.id.tvGold);
+        tvGold.setText("  Gold : "+String.valueOf(gold)+"  ");
 
-        tvAnimate();
 
-        btSkipIntro=findViewById(R.id.btSkipIntro);
-        btSkipIntro.setOnClickListener(new View.OnClickListener() {
+
+
+        dic_Army.put("Monster1",new Army("Monster1","larvezouple_foreground",20,2000,50,50,100,1,10,0));
+        dic_Army.put("Monster2",new Army("Monster2","fantomozouple_foreground",100,1000,100,200,100,1.5,10,0));
+        dic_Army.put("Monster3",new Army("Monster3","sorciozouple_foreground",500,1000,100,120,150,2,10,0));
+        dic_Army.put("Monster4",new Army("Monster4","canardchemine_foreground",50,2000,200,250,250,2,10,0));
+        dic_Army.put("Monster5",new Army("Monster5","alienzouple_foreground",400,2500,150,400,500,3.5,10,0));
+        dic_Army.put("Monster6",new Army("Monster6","hyppozouple_foreground",70,5000,200,200,750,4,10,0));
+        dic_Army.put("Monster7",new Army("Monster7","extraterrestrezouple_foreground",600,3500,200,800,1000,5.5,10,0));
+        dic_Army.put("Monster8",new Army("Monster8","kirbyzouple_foreground",40,15000,1000,100,1500,10,10,0));
+
+
+        myHandler = new Handler();
+        myHandler.postDelayed(myRunnable,200); // on redemande toute les 500ms
+        btArmy1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToIntro2();
+
             }
         });
 
+
     }
+    private Handler myHandler;
 
-    public void moveToIntro2(){
-        Intent intent =new Intent(MainActivity.this,Intro2.class);
-        startActivity(intent);
+
+    private Runnable myRunnable = new Runnable() {
+        @Override
+        public void run() {
+            // Code à éxécuter de façon périodique
+            gold++;
+            tvGold.setText("  Gold : "+String.valueOf(gold)+"  ");
+            myHandler.postDelayed(this,200);
+        }
+    };
+
+
+
+
+
+
+
+    public void onPause() {
+        super.onPause();
+        if(myHandler != null)
+            myHandler.removeCallbacks(myRunnable); // On arrete le callback
     }
+    public  void addImg(ImageView img,int width,int height){
 
-    public void tvAnimate(){
-
-        final Handler timerHandler = new Handler();
-        final Runnable timerRunnable = new Runnable() {
-            @Override
-            public void run() {
-                ScrollViewIntro.smoothScrollBy(0,2);         // 5 is how many pixels you want it to scroll vertically by
-                timerHandler.postDelayed(this, 45);     // 10 is how many milliseconds you want this thread to run
-            }
-        };
-        timerHandler.postDelayed(timerRunnable, 0);
-        tvIntro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isAnimate) {
-                    timerHandler.removeCallbacks(timerRunnable);
-                    isAnimate=false;
-                }
-                else {
-                    timerHandler.postDelayed(timerRunnable, 0);
-                    isAnimate=true;
-                }
-
-            }
-        });
     }
-
-
-
 }

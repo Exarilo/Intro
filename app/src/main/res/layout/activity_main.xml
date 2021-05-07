@@ -4,56 +4,384 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundintro"
+
+
+    android:background="#00C9FF"
     tools:context=".MainActivity">
 
-
-
-    <ScrollView
-
-        android:id="@+id/ScrollViewIntro"
-        android:layout_width="390dp"
-        android:layout_height="match_parent"
-        android:gravity="left"
-        android:scrollbars="none"
-
-
-
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/tvIntro"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:shadowDx="2"
-            android:shadowDy="2"
-            android:shadowRadius="2"
-            android:text="@string/txtIntro"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-
-    </ScrollView>
-
-    <android.widget.Button
-        android:id="@+id/btSkipIntro"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VglNuages1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/borderskip"
-        android:text=">>>"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VglNuages2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="1.0" />
+
+    <pl.droidsonroids.gif.GifImageView
+
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/nuages"
+        app:layout_constraintBottom_toTopOf="@id/HglMain1"
+        app:layout_constraintEnd_toEndOf="@id/VglNuages2"
+        app:layout_constraintStart_toStartOf="@id/VglNuages1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <pl.droidsonroids.gif.GifImageView
+
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/herbe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07999998" />
+        app:layout_constraintTop_toBottomOf="@+id/HglMainHerbe"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/HglMain2"
+        app:layout_constraintEnd_toStartOf="@id/VglMain"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/HglMain1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/castle_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/HglMain2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/VglMain2"
+        app:layout_constraintTop_toTopOf="@+id/HglMain1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/castleennemi_foreground" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VglMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VglMain2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HglMain1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HglMainHerbe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HglMain2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HglCard1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HglCard2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/tvGold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/borderarmy"
+        android:text="  Gold :  "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1" />
 
 
+    <Button
+        android:id="@+id/btArmy1"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:background="@drawable/borderarmy"
+        android:foreground="@mipmap/larvezouple_foreground"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/design_default_color_surface"
+
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1" />
+
+    <TextView
+        android:id="@+id/tvAchat1"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordertextarmy"
+        android:text="50"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btArmy2"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:background="@drawable/borderarmy"
+
+        android:textColor="@color/black"
+        android:foreground="@mipmap/fantomozouple_foreground"
+        app:backgroundTint="@color/design_default_color_surface"
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1" />
+
+    <TextView
+        android:id="@+id/tvAchat2"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordertextarmy"
+        android:text="100"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard2"
+        app:layout_constraintVertical_bias="1.0" />
+    <Button
+        android:id="@+id/btArmy3"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:background="@drawable/borderarmy"
+
+        android:textColor="@color/black"
+        android:foreground="@mipmap/sorciozouple_foreground"
+        app:backgroundTint="@color/design_default_color_surface"
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1" />
+    <TextView
+        android:id="@+id/tvAchat3"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordertextarmy"
+        android:text="150"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.40"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard2"
+        app:layout_constraintVertical_bias="1.0" />
+    <Button
+        android:id="@+id/btArmy4"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:background="@drawable/borderarmy"
+
+        android:textColor="@color/black"
+        android:foreground="@mipmap/canardchemine_foreground"
+        app:backgroundTint="@color/design_default_color_surface"
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1" />
+    <TextView
+        android:id="@+id/tvAchat4"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordertextarmy"
+        android:text="250"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard2"
+        app:layout_constraintVertical_bias="1.0" />
+    <Button
+        android:id="@+id/btArmy5"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:background="@drawable/borderarmy"
+
+        android:textColor="@color/black"
+        android:foreground="@mipmap/alienzouple_foreground"
+        app:backgroundTint="@color/design_default_color_surface"
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1" />
+    <TextView
+        android:id="@+id/tvAchat6"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordertextarmy"
+        android:text="500"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.60"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard2"
+        app:layout_constraintVertical_bias="1.0" />
+    <Button
+        android:id="@+id/btArmy6"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:background="@drawable/borderarmy"
+
+        android:textColor="@color/black"
+        android:foreground="@mipmap/hyppozouple_foreground"
+        app:backgroundTint="@color/design_default_color_surface"
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1" />
+    <TextView
+        android:id="@+id/tvAchat8"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordertextarmy"
+        android:text="750"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.70"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard2"
+        app:layout_constraintVertical_bias="1.0" />
+    <Button
+        android:id="@+id/btArmy7"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:background="@drawable/borderarmy"
+
+        android:textColor="@color/black"
+        android:foreground="@mipmap/extraterrestrezouple_foreground"
+        app:backgroundTint="@color/design_default_color_surface"
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1" />
+    <TextView
+        android:id="@+id/tvAchat9"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordertextarmy"
+        android:text="1000"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.80"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btArmy8"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:background="@drawable/borderarmy"
+
+        android:textColor="@color/black"
+        android:foreground="@mipmap/kirbyzouple_foreground"
+        app:backgroundTint="@color/design_default_color_surface"
+        app:layout_constraintBottom_toTopOf="@+id/HglCard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard1"
+        app:layout_constraintVertical_bias="0.0" />
+    <TextView
+        android:id="@+id/tvAchat10"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordertextarmy"
+        android:text="1500"
+        android:gravity="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.90"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/HglCard2"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
