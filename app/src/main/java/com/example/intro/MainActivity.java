@@ -1,8 +1,11 @@
 package com.example.intro;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.content.pm.ActivityInfo;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -16,7 +19,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout layout;
+    LinearLayout layoutAttack;
     static int  gold =0;
     private TextView tvGold;
     private Button btArmy1;
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        layoutAttack=findViewById(R.id.layoutAttack);
         btArmy1=findViewById(R.id.btArmy1);
         btArmy2=findViewById(R.id.btArmy2);
         btArmy3=findViewById(R.id.btArmy3);
@@ -58,8 +61,54 @@ public class MainActivity extends AppCompatActivity {
         tvGold.setText("  Gold : "+String.valueOf(gold)+"  ");
 
 
-
-
+        btArmy1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addImg(btArmy1);
+            }
+        });
+        btArmy2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addImg(btArmy2);
+            }
+        });
+        btArmy3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addImg(btArmy3);
+            }
+        });
+        btArmy4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addImg(btArmy4);
+            }
+        });
+        btArmy5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addImg(btArmy5);
+            }
+        });
+        btArmy6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addImg(btArmy6);
+            }
+        });
+        btArmy7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addImg(btArmy7);
+            }
+        });
+        btArmy8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addImg(btArmy8);
+            }
+        });
         dic_Army.put("Monster1",new Army("Monster1","larvezouple_foreground",20,2000,50,50,100,1,10,0));
         dic_Army.put("Monster2",new Army("Monster2","fantomozouple_foreground",100,1000,100,200,100,1.5,10,0));
         dic_Army.put("Monster3",new Army("Monster3","sorciozouple_foreground",500,1000,100,120,150,2,10,0));
@@ -72,12 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
         myHandler = new Handler();
         myHandler.postDelayed(myRunnable,200); // on redemande toute les 500ms
-        btArmy1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
 
     }
@@ -95,17 +139,27 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-
-
-
-
-
     public void onPause() {
         super.onPause();
         if(myHandler != null)
             myHandler.removeCallbacks(myRunnable); // On arrete le callback
     }
-    public  void addImg(ImageView img,int width,int height){
+    public  void setImgParam(ImageView img,int width,int height){
+        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(width,height);
+        layoutParams.setMargins(0,550,0,0);
+
+        img.setLayoutParams(layoutParams);
+        layoutAttack.addView(img);
 
     }
+    public void addImg(Button bt){
+        ImageView imageView= new ImageView(MainActivity.this);
+        //int id= getResources().getIdentifier(btArmy1.getForeground().toString(),"mipmap",getPackageName());
+        int id= getResources().getIdentifier(bt.getTag().toString(),"mipmap",getPackageName());
+        if(id<=0)
+            return;
+        imageView.setImageResource(id);
+        setImgParam(imageView,200,200);
+    }
+
 }
