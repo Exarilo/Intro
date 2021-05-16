@@ -10,8 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZoupleAttackk">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Intro2"></activity>
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation= "sensorLandscape"/>
+        <activity android:name=".Intro2"
+            android:configChanges="orientation"
+            android:screenOrientation= "sensorLandscape"/>
         <activity android:name=".Intro1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

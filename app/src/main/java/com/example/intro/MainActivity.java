@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btArmy6;
     private Button btArmy7;
     private Button btArmy8;
-
-
+    private ImageView imgAvatar;
+    private TextView tvPseudoInGame;
     static Army currentUserArmy;
     HashMap<String, Army> dic_Army = new HashMap<String, Army>();
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 
 
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         btArmy6=findViewById(R.id.btArmy6);
         btArmy7=findViewById(R.id.btArmy7);
         btArmy8=findViewById(R.id.btArmy8);
-
-
+        imgAvatar=findViewById(R.id.imgAvatar);
+        tvPseudoInGame=findViewById(R.id.tvPseudoInGame);
         tvGold=findViewById(R.id.tvGold);
         tvGold.setText("  Gold : "+String.valueOf(gold)+"  ");
 
@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         dic_Army.put("Monster6",new Army("Monster6","hyppozouple_foreground",70,5000,200,200,750,4,10,0));
         dic_Army.put("Monster7",new Army("Monster7","extraterrestrezouple_foreground",600,3500,200,800,1000,5.5,10,0));
         dic_Army.put("Monster8",new Army("Monster8","kirbyzouple_foreground",40,15000,1000,100,1500,10,10,0));
+
+        setUserInfo();
 
 
         myHandler = new Handler();
@@ -108,4 +110,34 @@ public class MainActivity extends AppCompatActivity {
     public  void addImg(ImageView img,int width,int height){
 
     }
+    public void setUserInfo(){
+        tvPseudoInGame.setText(Intro2.userName);
+        if(Intro2.avatarSelect==1){
+            int id= getResources().getIdentifier("zoupleavatar1_foreground","mipmap",getPackageName());
+            if(id<=0)
+                return;
+            imgAvatar.setImageResource(id);
+        }
+        else if(Intro2.avatarSelect==2){
+            int id= getResources().getIdentifier("zoupleavatar2_foreground","mipmap",getPackageName());
+            if(id<=0)
+                return;
+            imgAvatar.setImageResource(id);
+        }
+        else if(Intro2.avatarSelect==3){
+            int id= getResources().getIdentifier("zoupleavatar3_foreground","mipmap",getPackageName());
+            if(id<=0)
+                return;
+            imgAvatar.setImageResource(id);
+        }
+        else if(Intro2.avatarSelect==4){
+            int id= getResources().getIdentifier("zoupleavatar4_foreground","mipmap",getPackageName());
+            if(id<=0)
+                return;
+            imgAvatar.setImageResource(id);
+        }
+    }
+
+
+
 }

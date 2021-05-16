@@ -23,6 +23,8 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="1.0" />
 
+
+
     <pl.droidsonroids.gif.GifImageView
 
         android:id="@+id/imageView5"
@@ -54,6 +56,7 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+
         app:layout_constraintBottom_toTopOf="@id/HglMain2"
         app:layout_constraintEnd_toStartOf="@id/VglMain"
         app:layout_constraintHorizontal_bias="0.0"
@@ -384,4 +387,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/HglCard2"
         app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/userinfobackground"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/HglMain1"
+        app:layout_constraintEnd_toStartOf="@+id/VglMain"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/roungimgingame"
+
+            app:srcCompat="@mipmap/zoupleavatar1_foreground" />
+
+        <TextView
+            android:id="@+id/tvPseudoInGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Pseudo\nbarre de pv"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

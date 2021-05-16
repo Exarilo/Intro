@@ -2,10 +2,14 @@ package com.example.intro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ScrollView;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -17,6 +21,7 @@ public class Intro1 extends AppCompatActivity {
     ScrollView ScrollViewIntro;
     static boolean isAnimate=true;
     private Button btSkipIntro;
+    static int numActivity=1;
 
 
 
@@ -41,6 +46,7 @@ public class Intro1 extends AppCompatActivity {
         btSkipIntro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numActivity++;
                 moveToIntro2();
             }
         });
@@ -51,6 +57,7 @@ public class Intro1 extends AppCompatActivity {
         Intent intent =new Intent(Intro1.this,Intro2.class);
         startActivity(intent);
     }
+
 
     public void tvAnimate(){
 
