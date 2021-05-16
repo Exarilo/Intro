@@ -9,8 +9,6 @@
     android:background="#00C9FF"
     tools:context=".MainActivity">
 
-
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/VglNuages1"
         android:layout_width="wrap_content"
@@ -24,6 +22,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="1.0" />
+
+
 
     <pl.droidsonroids.gif.GifImageView
 
@@ -56,7 +56,7 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="fitXY"
+
         app:layout_constraintBottom_toTopOf="@id/HglMain2"
         app:layout_constraintEnd_toStartOf="@id/VglMain"
         app:layout_constraintHorizontal_bias="0.0"
@@ -69,7 +69,6 @@
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@id/HglMain2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -78,42 +77,26 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/castleennemi_foreground" />
 
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/VglChateau1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/VglChateau2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.84" />
-
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/VglMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.20" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/VglMain2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.80" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/HglMain1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.20" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/HglMainHerbe"
@@ -167,7 +150,7 @@
         android:foreground="@mipmap/larvezouple_foreground"
         android:textColor="@color/black"
         app:backgroundTint="@color/design_default_color_surface"
-        android:tag="larvezouple_foreground"
+
         app:layout_constraintBottom_toTopOf="@+id/HglCard2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
@@ -196,7 +179,7 @@
         android:layout_width="55dp"
         android:layout_height="0dp"
         android:background="@drawable/borderarmy"
-        android:tag="fantomozouple_foreground"
+
         android:textColor="@color/black"
         android:foreground="@mipmap/fantomozouple_foreground"
         app:backgroundTint="@color/design_default_color_surface"
@@ -227,7 +210,7 @@
         android:layout_width="55dp"
         android:layout_height="0dp"
         android:background="@drawable/borderarmy"
-        android:tag="sorciozouple_foreground"
+
         android:textColor="@color/black"
         android:foreground="@mipmap/sorciozouple_foreground"
         app:backgroundTint="@color/design_default_color_surface"
@@ -257,7 +240,7 @@
         android:layout_width="55dp"
         android:layout_height="0dp"
         android:background="@drawable/borderarmy"
-        android:tag="canardchemine_foreground"
+
         android:textColor="@color/black"
         android:foreground="@mipmap/canardchemine_foreground"
         app:backgroundTint="@color/design_default_color_surface"
@@ -287,7 +270,7 @@
         android:layout_width="55dp"
         android:layout_height="0dp"
         android:background="@drawable/borderarmy"
-        android:tag="alienzouple_foreground"
+
         android:textColor="@color/black"
         android:foreground="@mipmap/alienzouple_foreground"
         app:backgroundTint="@color/design_default_color_surface"
@@ -317,7 +300,7 @@
         android:layout_width="55dp"
         android:layout_height="0dp"
         android:background="@drawable/borderarmy"
-        android:tag="hyppozouple_foreground"
+
         android:textColor="@color/black"
         android:foreground="@mipmap/hyppozouple_foreground"
         app:backgroundTint="@color/design_default_color_surface"
@@ -347,7 +330,7 @@
         android:layout_width="55dp"
         android:layout_height="0dp"
         android:background="@drawable/borderarmy"
-        android:tag="extraterrestrezouple_foreground"
+
         android:textColor="@color/black"
         android:foreground="@mipmap/extraterrestrezouple_foreground"
         app:backgroundTint="@color/design_default_color_surface"
@@ -378,7 +361,7 @@
         android:layout_width="55dp"
         android:layout_height="0dp"
         android:background="@drawable/borderarmy"
-        android:tag="kirbyzouple_foreground"
+
         android:textColor="@color/black"
         android:foreground="@mipmap/kirbyzouple_foreground"
         app:backgroundTint="@color/design_default_color_surface"
@@ -404,16 +387,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/HglCard2"
         app:layout_constraintVertical_bias="1.0" />
+
     <LinearLayout
-        android:id="@+id/layoutAttack"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/userinfobackground"
         android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/HglMain1"
+        app:layout_constraintEnd_toStartOf="@+id/VglMain"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/HglMain2"
-        app:layout_constraintStart_toStartOf="@+id/VglChateau1"
-        app:layout_constraintEnd_toStartOf="@+id/VglChateau2">
+        app:layout_constraintVertical_bias="0.1">
 
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/roungimgingame"
 
+            app:srcCompat="@mipmap/zoupleavatar1_foreground" />
+
+        <TextView
+            android:id="@+id/tvPseudoInGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Pseudo\nbarre de pv"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
