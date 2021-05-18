@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 public class Intro1 extends AppCompatActivity {
     private TextView tvIntro;
     ScrollView ScrollViewIntro;

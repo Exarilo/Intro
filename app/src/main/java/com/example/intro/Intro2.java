@@ -42,10 +42,8 @@ public class Intro2 extends AppCompatActivity {
     private ImageView imgAvatar4;
     private EditText tvPseudo;
     static int avatarSelect =0;
-
-    static String userName="";
-
-
+    static User currentUser;
+    Database db = new Database(Intro2.this);
 
 
 
@@ -65,6 +63,12 @@ public class Intro2 extends AppCompatActivity {
         imgAvatar4=findViewById(R.id.imgAvatar4);
         tvPseudo=findViewById(R.id.tvPseudo);
 
+        User user=new User("",1,0,0,100,1000,1000);
+        currentUser=user;
+        db.LoadUser(currentUser);
+
+        if (Intro2.currentUser.name!="")
+            tvPseudo.setText(Intro2.currentUser.name);
         //tvTextLogIn.setText(TxtIntro);
         //int txtIntroLenght= TxtIntro.length();
 
@@ -160,6 +164,7 @@ public class Intro2 extends AppCompatActivity {
                     tvTextLogIn.animateText("Ce pseudo est trop long je vais jamais pouvoir le retenir ! ");
                 }
                 else {
+                    Intro2.currentUser.name=tvPseudo.getText().toString();
                     Intro1.numActivity++;
                     btValider.setVisibility(View.INVISIBLE);
                     btNext.setVisibility(View.VISIBLE);
@@ -186,7 +191,6 @@ public class Intro2 extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(avatarSelect!=0) {
-                    userName=tvPseudo.getText().toString();
                     moveToMain();
 
                 }
@@ -248,6 +252,10 @@ public class Intro2 extends AppCompatActivity {
             this.finish();
         }
     }
+    public void onStop() {
 
+        db.SaveUser(currentUser);
+        super.onStop();
+    }
 }
 

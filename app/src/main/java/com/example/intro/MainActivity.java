@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btArmy6;
     private Button btArmy7;
     private Button btArmy8;
+    private TextView tvPV;
     private ImageView imgAvatar;
     private TextView tvPseudoInGame;
     static Army currentUserArmy;
@@ -54,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
         btArmy8=findViewById(R.id.btArmy8);
         imgAvatar=findViewById(R.id.imgAvatar);
         tvPseudoInGame=findViewById(R.id.tvPseudoInGame);
+
+        tvPV=findViewById(R.id.tvPV);
+        tvPV.setText(String.valueOf(Intro2.currentUser.currentHP)+"/"+String.valueOf(Intro2.currentUser.maxHP));
         tvGold=findViewById(R.id.tvGold);
         tvGold.setText("  Gold : "+String.valueOf(gold)+"  ");
-
 
 
 
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void setUserInfo(){
-        tvPseudoInGame.setText(Intro2.userName);
+        tvPseudoInGame.setText(Intro2.currentUser.name);
         if(Intro2.avatarSelect==1){
             int id= getResources().getIdentifier("zoupleavatar1_foreground","mipmap",getPackageName());
             if(id<=0)

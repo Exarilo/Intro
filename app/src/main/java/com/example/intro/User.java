@@ -4,7 +4,10 @@ public class User {
 
 
     String name;
-    int xp;
+    int currentXP;
+    int lvl;
+    int currentHP;
+    int maxHP;
     double maxXP;
     int gold;
 
@@ -12,15 +15,48 @@ public class User {
 
     //endregion
     //region constructor
-    public User(String name,int gold,int xp,double maxXP)
+    public User(String name,int lvl,int gold,int currentXP,double maxXP,int currentHP,int maxHP )
     {
+        this.lvl=lvl;
         this.name=name;
         this.gold=gold;
-        this.xp=xp;
+        this.currentXP=currentXP;
         this.maxXP=maxXP;
+        this.currentHP=currentHP;
+        this.maxHP=maxHP;
     }
 
+    public int getCurrentHP() {
+        return currentHP;
+    }
 
+    public int getCurrentXP() {
+        return currentXP;
+    }
+
+    public int getLvl() {
+        return lvl;
+    }
+
+    public int getMaxHP() {
+        return maxHP;
+    }
+
+    public void setCurrentHP(int currentHP) {
+        this.currentHP = currentHP;
+    }
+
+    public void setCurrentXP(int currentXP) {
+        this.currentXP = currentXP;
+    }
+
+    public void setLvl(int lvl) {
+        this.lvl = lvl;
+    }
+
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
+    }
 
 
     public String getName(){
@@ -48,11 +84,11 @@ public class User {
 
 
     public void setXp(int xp) {
-        this.xp = xp;
+        this.currentXP = xp;
     }
 
     public int getXp() {
-        return xp;
+        return currentXP;
     }
 
     public double getMaxXP() {
