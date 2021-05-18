@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -30,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvPV;
     private ImageView imgAvatar;
     private TextView tvPseudoInGame;
+    private ProgressBar pbUserHP;
+
     static Army currentUserArmy;
+
     HashMap<String, Army> dic_Army = new HashMap<String, Army>();
 
 
@@ -55,11 +59,15 @@ public class MainActivity extends AppCompatActivity {
         btArmy8=findViewById(R.id.btArmy8);
         imgAvatar=findViewById(R.id.imgAvatar);
         tvPseudoInGame=findViewById(R.id.tvPseudoInGame);
+        pbUserHP=findViewById(R.id.pbUserHP);
+        pbUserHP.setMax(Intro2.currentUser.maxHP);
+        pbUserHP.setProgress(Intro2.currentUser.currentHP);
 
         tvPV=findViewById(R.id.tvPV);
         tvPV.setText(String.valueOf(Intro2.currentUser.currentHP)+"/"+String.valueOf(Intro2.currentUser.maxHP));
         tvGold=findViewById(R.id.tvGold);
         tvGold.setText("  Gold : "+String.valueOf(gold)+"  ");
+
 
 
 
