@@ -63,7 +63,7 @@ public class Intro2 extends AppCompatActivity {
         imgAvatar4=findViewById(R.id.imgAvatar4);
         tvPseudo=findViewById(R.id.tvPseudo);
 
-        User user=new User("",1,0,0,100,1000,1000);
+        User user=new User("","zoupleavatar1_foreground",1,0,0,100,1000,1000);
         currentUser=user;
         db.LoadUser(currentUser);
 
@@ -191,6 +191,14 @@ public class Intro2 extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(avatarSelect!=0) {
+                    if(avatarSelect==1)
+                        currentUser.avatarImg="zoupleavatar1_foreground";
+                    else if(avatarSelect==2)
+                        currentUser.avatarImg="zoupleavatar2_foreground";
+                    else if(avatarSelect==3)
+                        currentUser.avatarImg="zoupleavatar3_foreground";
+                    else if(avatarSelect==4)
+                        currentUser.avatarImg="zoupleavatar4_foreground";
                     moveToMain();
 
                 }

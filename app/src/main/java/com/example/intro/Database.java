@@ -18,6 +18,7 @@ public class Database extends SQLiteOpenHelper {
 
     public static final String UserID = "ID";
     public static final String UserName = "Name ";
+    public static final String UserAvatar = "Avatar ";
     public static final String UserLvl = "Lvl ";
     public static final String UserXP = "currentXP ";
     public static final String UserXPMax = "maxXP  ";
@@ -36,7 +37,7 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableUser= "CREATE TABLE " + "User" + "(ID INTEGER DEFAULT 1 ,"  + UserName + " String DEFAULT '',"+  UserLvl + " Integer DEFAULT 1 ," + UserXP +
+        String createTableUser= "CREATE TABLE " + "User" + "(ID INTEGER DEFAULT 1 ,"  + UserName + " String DEFAULT '',"+ UserAvatar + " String DEFAULT 'zoupleavatar1_foreground',"+  UserLvl + " Integer DEFAULT 1 ," + UserXP +
                 " Integer DEFAULT 0," + UserXPMax + " Integer DEFAULT 100 ," + UserGold+ " Integer DEFAULT 0 ," + UserCurrentHP + " Integer DEFAULT 1000 ," +
                 UserMaxHP +"Integer DEFAULT 1000);";
 
@@ -71,6 +72,7 @@ public class Database extends SQLiteOpenHelper {
             contentValues.put(UserXPMax, user.maxXP);
             contentValues.put(UserGold, user.gold);
             contentValues.put(UserName, user.name);
+            contentValues.put(UserAvatar, user.avatarImg);
             contentValues.put(UserCurrentHP, user.currentHP);
             contentValues.put(UserMaxHP, user.maxHP);
             db.update("User", contentValues, "ID= ? ", new String[]{"1"});
@@ -85,12 +87,13 @@ public class Database extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] allColumns_User = { "ID", "Name", "Lvl", "currentXP", "maxXP","Gold","CurrentHP","MaxHP"};
+        String[] allColumns_User = { "ID", "Name","Avatar", "Lvl", "currentXP", "maxXP","Gold","CurrentHP","MaxHP"};
 
 
         Cursor cursor =db.query("User", allColumns_User, "ID = ?",new String[]{"1"},null,null,null);
         if( cursor != null && cursor.moveToFirst() ){
             user.name=cursor.getString(cursor.getColumnIndex("Name"));
+            user.avatarImg=cursor.getString(cursor.getColumnIndex("Avatar"));
             user.lvl=cursor.getInt(cursor.getColumnIndex("Lvl"));
             user.currentXP=cursor.getInt(cursor.getColumnIndex("currentXP"));
             user.maxXP=cursor.getInt(cursor.getColumnIndex("maxXP"));

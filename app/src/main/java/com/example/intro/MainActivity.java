@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         pbUserHP.setProgress(Intro2.currentUser.currentHP);
 
         tvPV=findViewById(R.id.tvPV);
-        tvPV.setText(String.valueOf(Intro2.currentUser.currentHP)+"/"+String.valueOf(Intro2.currentUser.maxHP));
+        tvPV.setText(String.valueOf(Intro2.currentUser.currentHP)+" / "+String.valueOf(Intro2.currentUser.maxHP));
         tvGold=findViewById(R.id.tvGold);
         tvGold.setText("  Gold : "+String.valueOf(gold)+"  ");
 
@@ -123,32 +123,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void setUserInfo(){
         tvPseudoInGame.setText(Intro2.currentUser.name);
-        if(Intro2.avatarSelect==1){
-            int id= getResources().getIdentifier("zoupleavatar1_foreground","mipmap",getPackageName());
-            if(id<=0)
-                return;
-            imgAvatar.setImageResource(id);
-        }
-        else if(Intro2.avatarSelect==2){
-            int id= getResources().getIdentifier("zoupleavatar2_foreground","mipmap",getPackageName());
-            if(id<=0)
-                return;
-            imgAvatar.setImageResource(id);
-        }
-        else if(Intro2.avatarSelect==3){
-            int id= getResources().getIdentifier("zoupleavatar3_foreground","mipmap",getPackageName());
-            if(id<=0)
-                return;
-            imgAvatar.setImageResource(id);
-        }
-        else if(Intro2.avatarSelect==4){
-            int id= getResources().getIdentifier("zoupleavatar4_foreground","mipmap",getPackageName());
-            if(id<=0)
-                return;
-            imgAvatar.setImageResource(id);
-        }
+        int id= getResources().getIdentifier(Intro2.currentUser.avatarImg,"mipmap",getPackageName());
+        if(id<=0)
+            return;
+        imgAvatar.setImageResource(id);
+
     }
-
-
 
 }

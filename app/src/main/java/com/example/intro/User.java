@@ -5,6 +5,7 @@ public class User {
 
     String name;
     int currentXP;
+    String avatarImg;
     int lvl;
     int currentHP;
     int maxHP;
@@ -15,7 +16,7 @@ public class User {
 
     //endregion
     //region constructor
-    public User(String name,int lvl,int gold,int currentXP,double maxXP,int currentHP,int maxHP )
+    public User(String name,String avatarImg,int lvl,int gold,int currentXP,double maxXP,int currentHP,int maxHP )
     {
         this.lvl=lvl;
         this.name=name;
@@ -24,6 +25,15 @@ public class User {
         this.maxXP=maxXP;
         this.currentHP=currentHP;
         this.maxHP=maxHP;
+        this.avatarImg=avatarImg;
+    }
+
+    public String getAvatarImg() {
+        return avatarImg;
+    }
+
+    public void setAvatarImg(String avatarImg) {
+        this.avatarImg = avatarImg;
     }
 
     public int getCurrentHP() {
