@@ -1,10 +1,18 @@
 package com.example.intro;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,7 +23,12 @@ import android.widget.TextView;
 import java.util.HashMap;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
+
+
+    Bitmap bitmap1;
+    Canvas canvas;
+
 
     LinearLayout layout;
     static int  gold =0;
@@ -46,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-
-
+        canvas.drawBitmap(bitmap1,0,null);
+        bitmap1= BitmapFactory.decodeResource(getResources(), R.drawable.test);
 
         btArmy1=findViewById(R.id.btArmy1);
         btArmy2=findViewById(R.id.btArmy2);
@@ -88,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
         btArmy1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Sprite sprite = new Sprite (bitmap1,100,100,50,50,3,3);
+                //sprite.draw();
+                sprite.draw(bitmap1);
 
             }
         });
@@ -129,5 +145,7 @@ public class MainActivity extends AppCompatActivity {
         imgAvatar.setImageResource(id);
 
     }
+
+
 
 }
